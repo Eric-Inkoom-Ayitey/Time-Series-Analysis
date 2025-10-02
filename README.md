@@ -1,38 +1,62 @@
-# 📈 Time Series Analysis of Stock Prices
+# 📈 Time Series Analysis: Stock Price Trends
 
-This repository contains a Jupyter notebook that performs time series analysis on historical stock price data. The goal is to uncover underlying patterns such as trends, seasonality, and residual fluctuations using Python-based statistical techniques.
+This project presents a detailed time series analysis of selected stock price data using Python. The notebook explores temporal patterns, stationarity, decomposition, and smoothing techniques to uncover insights that support forecasting and investment decisions.
 
-## 🧠 Objectives
+---
 
-- Visualize stock price movements over time
-- Decompose the time series into trend, seasonal, and residual components
-- Apply moving average smoothing to highlight long-term patterns
+## 1. 🧭 Introduction
 
-## 🛠️ Tools & Libraries
+- **Problem Statement**: Understand and model the behavior of stock prices over time to identify trends, seasonality, and volatility.
+- **Objectives**: Apply time series techniques to visualize, decompose, and smooth stock price data for actionable insights.
+- **Data Source**: Historical stock price data retrieved from Yahoo Finance using `yfinance`.
+- **Context**: Time series analysis is vital in financial modeling, risk management, and algorithmic trading. This project demonstrates intermediate-level techniques for exploring stock dynamics.
 
-- Python
-- pandas
-- matplotlib
-- statsmodels
+---
 
-## 📂 File Structure
+## 2. 🧹 Data Preparation
 
-- `Time_Series_Analysis.ipynb`: Main notebook containing the analysis
-- `README.md`: Project overview and instructions
-- `images/`: Folder to store visual outputs for documentation
+- **Loading**: Stock data is loaded and organized into a pivot table.
+- **Cleaning**: Missing values are handled, and date formats are standardized.
+- **Validation**: Data ranges and completeness are verified across all selected stocks.
 
-## 📸 Included Visuals
+---
 
+## 3. 📊 Exploratory Analysis
 
-1. **Raw Time Series Plot** – Line chart of stock closing prices over time  
+- **Visualizations**: Individual and comparative time series plots are generated for each stock.
+- **Statistics**: Summary metrics such as mean, variance, and price range are computed.
+- **Patterns**: Initial trends and cyclical behaviors are identified visually.
+
 ![Raw Time Series](https://raw.githubusercontent.com/Eric-Inkoom-Ayitey/Time-Series-Analysis/main/images/raw_time_series.png)
 
+---
 
-2. **Decomposition Plot** – Trend, seasonality, and residuals from `seasonal_decompose`  
+## 4. 📉 Stationarity Analysis
+
+- **ADF Test**: Augmented Dickey-Fuller test is applied to assess stationarity.
+- **Visual Checks**: Rolling mean and standard deviation plots are used to support statistical findings.
+- **Transformations**: Log transformations or differencing are suggested if non-stationarity is detected.
+
+---
+
+## 5. 🔍 Decomposition Analysis
+
+- **Method**: `seasonal_decompose` from `statsmodels` is used to split the series into:
+  - **Trend**
+  - **Seasonality**
+  - **Residuals**
+- **Model Rationale**: Additive decomposition is chosen based on data characteristics.
+- **Interpretation**: Each component is analyzed to understand its contribution to overall price movement.
+
 ![Decomposition](https://raw.githubusercontent.com/Eric-Inkoom-Ayitey/Time-Series-Analysis/main/images/decomposition.png)
 
+---
 
-3. **Smoothed Trend Plot** – 30-day moving average overlaid on original data  
+## 6. 🧠 Advanced Analysis
+
+- **Autocorrelation**: ACF and PACF plots are used to study lag dependencies.
+- **Moving Average**: 30-day smoothing is applied to highlight long-term trends.
+- **Seasonal Detection**: Repeating patterns are examined across months and quarters.
 
 ![AAPL Moving Average](https://raw.githubusercontent.com/Eric-Inkoom-Ayitey/Time-Series-Analysis/main/images/AAPL_moving_average.png)
 
@@ -45,3 +69,42 @@ This repository contains a Jupyter notebook that performs time series analysis o
 ![WMT Moving Average](https://raw.githubusercontent.com/Eric-Inkoom-Ayitey/Time-Series-Analysis/main/images/WMT_moving_average.png)
 
 ![XOM Moving Average](https://raw.githubusercontent.com/Eric-Inkoom-Ayitey/Time-Series-Analysis/main/images/XOM_moving_average.png)
+
+---
+
+## 7. 💼 Practical Applications
+
+- **Investment Insights**: Trend analysis supports timing decisions for entry and exit.
+- **Forecasting**: Decomposition and stationarity checks lay the groundwork for ARIMA or Prophet models.
+- **Risk Management**: Understanding volatility and residual noise helps assess uncertainty.
+
+---
+
+## 8. 🧾 Conclusion
+
+- **Key Findings**:
+  - Clear upward trends in selected stocks
+  - Seasonal dips and spikes aligned with market cycles
+  - Moderate residual noise indicating partial predictability
+- **Limitations**:
+  - No forecasting model implemented yet
+  - Sentiment analysis not fully integrated
+- **Recommendations**:
+  - Extend with ARIMA or Prophet for forecasting
+  - Integrate sentiment scores from news headlines or social media
+  - Build an interactive dashboard for stakeholder presentation
+
+---
+
+## 🚀 How to Run
+
+```bash
+# Clone the repository
+git clone https://github.com/Eric-Inkoom-Ayitey/Time-Series-Analysis.git
+cd Time-Series-Analysis
+
+# Install dependencies
+pip install pandas matplotlib statsmodels yfinance
+
+# Launch the notebook
+jupyter notebook Time_Series_Analysis.ipynb
